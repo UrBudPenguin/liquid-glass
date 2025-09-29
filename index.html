@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Liquid Glass Effect</title>
+    <title>iOS 26 Liquid Glass Effect</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="liquid-glass-container">
         <div class="glass-card">
-            <h2>Liquid Glass Effect</h2>
+            <h2>Liquid Glass</h2>
             <p>Replicating Apple's new UI with CSS and SVG filters.</p>
         </div>
     </div>
@@ -29,7 +29,7 @@
             <feSpecularLighting in="noise" specularExponent="20" lighting-color="#fff" result="specular">
                 <fePointLight x="-5000" y="-10000" z="20000" />
             </feSpecularLighting>
-            <!-- Overlays the highlight on the glass -->
+            <!-- Overlays the highlight on the distortion -->
             <feComposite in="specular" in2="SourceGraphic" operator="in" result="lighting" />
             <feComposite in="SourceGraphic" in2="lighting" operator="over" />
         </filter>
