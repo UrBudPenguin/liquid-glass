@@ -1,0 +1,68 @@
+/* General styling */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #fff;
+    background-color: #111;
+}
+
+/* Background container for the blur to work against */
+.liquid-glass-container {
+    /* Use a background image or animated gradient */
+    background: url('https://eaglercraftz.pages.dev/assets/background/panorama-shaders.png') center/cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Key styling for the glass card */
+.glass-card {
+    position: relative;
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
+    backdrop-filter: blur(10px) saturate(180%); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px) saturate(180%); /* Vendor prefix for Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    max-width: 400px;
+    transition: all 0.3s ease;
+    
+    /* Apply the SVG filter for liquid distortion */
+    filter: url(#liquid-distortion);
+}
+
+/* Ensure the content is visible above the glass effect */
+.glass-card h2, .glass-card p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.glass-card h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+    .glass-card {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+    .glass-card h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Fallback for browsers that don't support SVG filters fully */
+@supports not (filter: url(#liquid-distortion)) {
+    .glass-card {
+        filter: none; /* Disable the unsupported filter */
+    }
+}
